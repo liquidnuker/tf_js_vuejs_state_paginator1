@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+    .descriptionBox {
+      background-color: #ccc;
+    }
+
+    .app, .app2 {
+      float:left;
+      width:50%;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="paginator"></div>
+    <div id="descriptionBox" class="descriptionBox">
+      <li v-for="items in sharedState.filteredId">
+        {{ items.id }} <br>
+        {{ items.thumb }} <br>
+        <img v-bind:src="'img/' + items.id +'.jpg'" v-bind:id="items.id">
+      </li>
+    </div>
+    <div id="app" class="app">
+      <ul id="galleryContainer">
+        <li v-for="items in sharedState.message">
+          {{ items.id }} <br>
+          {{ items.thumb }} <br>
+          <img v-bind:src="'img/' + items.id +'.jpg'" v-bind:id="items.id">
+        </li>
+      </ul>
+    </div>
+    <div id="app2" class="app2">
+      <ul>
+        <li v-for="items in sharedState.message">
+          {{ items.species }} <br>
+          {{ items.value }}
+        </li>
+      </ul>
+    </div>
+    
+    <script src="dist/index.bundle.js"></script>
+  </body>
+</html>
